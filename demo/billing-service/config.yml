@@ -1,0 +1,3 @@
+base_currency: USD
+tax_rate: 0.1
+rates_url: https://rates.example.com/rates

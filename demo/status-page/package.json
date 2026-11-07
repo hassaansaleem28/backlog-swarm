@@ -1,0 +1,16 @@
+{
+  "name": "status-page",
+  "version": "0.9.0",
+  "private": true,
+  "description": "Renders the public status page from the latest health checks.",
+  "main": "src/status.js",
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "ms": "2.1.3"
+  }
+}

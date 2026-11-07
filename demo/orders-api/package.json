@@ -1,0 +1,20 @@
+{
+  "name": "orders-api",
+  "version": "1.4.0",
+  "private": true,
+  "description": "Orders service: sign-in, orders and totals in the customer's currency.",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "axios": "0.21.1",
+    "express": "4.17.1",
+    "jsonwebtoken": "8.5.1",
+    "lodash": "4.17.15"
+  }
+}

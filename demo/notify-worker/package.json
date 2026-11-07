@@ -1,0 +1,22 @@
+{
+  "name": "notify-worker",
+  "version": "2.1.0",
+  "private": true,
+  "description": "Renders notification emails from Markdown, sends them to a webhook and streams them to live dashboards.",
+  "main": "src/cli.js",
+  "bin": {
+    "notify": "src/cli.js"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "marked": "0.3.19",
+    "minimist": "1.2.5",
+    "node-fetch": "2.6.1",
+    "ws": "7.4.5"
+  }
+}

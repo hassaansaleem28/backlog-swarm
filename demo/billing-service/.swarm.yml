@@ -1,0 +1,7 @@
+# Settings for Backlog Swarm. Every key is optional.
+install: >-
+  uv venv .swarm-venv --quiet --allow-existing &&
+  uv pip install --quiet --python .swarm-venv/bin/python -r requirements.txt -r requirements-dev.txt
+test: .swarm-venv/bin/python -m pytest -q -p no:cacheprovider
+protected:
+  - migrations/**

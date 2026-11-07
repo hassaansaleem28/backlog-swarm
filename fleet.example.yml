@@ -1,0 +1,31 @@
+# Describe your fleet, then build the Switch template from it:
+#
+#   uv run scripts/build_template.py fleet.yml > swarm.template.yaml
+#
+# and paste swarm.template.yaml into Switch Console: Templates, New.
+
+# Prefix for the room and every agent the template creates.
+name: swarm
+
+# Where the agents fetch the toolkit (tools/ and agents/) from.
+toolkit: https://github.com/hassaansaleem28/backlog-swarm
+
+# What a plain "@foreman sweep" fixes.
+severities: [critical, high]
+
+# The repositories the swarm may read. The gate may write to them. All must be
+# reachable through one installation of the Switch GitHub App.
+repos:
+  - hassaansaleem28/swarm-demo-orders-api
+  - hassaansaleem28/swarm-demo-notify-worker
+  - hassaansaleem28/swarm-demo-billing-service
+  - hassaansaleem28/swarm-demo-status-page
+
+# Which coding agent runs each role. Use a different vendor for the verifier
+# than for the workers: it is there to catch what they miss. The gate needs one
+# with native question cards (claude, opencode or antigravity).
+agents:
+  foreman: claude
+  verifier: claude
+  gate: claude
+  workers: [codex, codex, opencode]

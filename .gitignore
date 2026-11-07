@@ -1,0 +1,9 @@
+node_modules/
+.venv/
+.swarm-venv/
+__pycache__/
+.pytest_cache/
+fleet.yml
+swarm.template.yaml
+work/
+verify/

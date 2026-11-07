@@ -1,0 +1,5 @@
+node_modules/
+.venv/
+.swarm-venv/
+__pycache__/
+.pytest_cache/
