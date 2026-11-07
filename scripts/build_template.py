@@ -160,10 +160,14 @@ def build(fleet: dict) -> dict:
     roles = [("foreman", fleet["roles"]["foreman"]), *((k, p) for k, p in zip(worker_keys, fleet["workers"])),
              ("verifier", fleet["roles"]["verifier"]), ("gate", fleet["roles"]["gate"])]
     for key, provider in roles:
+        # A worker falls back to Codex when its provider is not ready on the
+        # machine; the verifier and the gate never fall back, since the
+        # verifier's vendor and the gate's question cards are the point.
+        chain = [provider, "codex"] if key.startswith("worker_") and provider != "codex" else [provider]
         params[f"{key}_provider"] = {
             "type": "provider",
             "label": f"{key.replace('_', ' ').capitalize()} runs on",
-            "default": [provider],
+            "default": chain,
             "input": "advanced",
         }
 

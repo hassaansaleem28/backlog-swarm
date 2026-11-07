@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 300" width="960" height="300" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif">
+  <style>
+    .bg { fill: #0b0d12; }
+    .box { fill: #12151d; stroke: #2b3142; stroke-width: 1.5; }
+    .t { fill: #e8ebf2; font-size: 15px; font-weight: 700; }
+    .s { fill: #9aa3b5; font-size: 11.5px; }
+    .lane { stroke: #2b3142; stroke-width: 2; stroke-dasharray: 6 6; fill: none; }
+    .flow { stroke-width: 3; fill: none; stroke-dasharray: 10 260; stroke-linecap: round; animation: run 3.2s linear infinite; }
+    @keyframes run { from { stroke-dashoffset: 270; } to { stroke-dashoffset: 0; } }
+    .d2 { animation-delay: .5s; } .d3 { animation-delay: 1s; } .d4 { animation-delay: 1.5s; } .d5 { animation-delay: 2s; }
+    .pulse { animation: pulse 2.4s ease-in-out infinite; transform-origin: center; transform-box: fill-box; }
+    @keyframes pulse { 0%,100% { opacity: .55; } 50% { opacity: 1; } }
+    .tick { fill: #43d39e; font-size: 13px; font-weight: 800; opacity: 0; animation: tick 3.2s ease-in-out infinite; }
+    @keyframes tick { 0%,60% { opacity: 0; } 70%,100% { opacity: 1; } }
+  </style>
+  <rect class="bg" width="960" height="300" rx="18"/>
+  <text x="30" y="40" class="t" style="font-size:18px">Backlog Swarm · one sweep</text>
+  <text x="30" y="60" class="s">Lead → foreman → workers (parallel) → rival-vendor verifier → gate → merged PRs</text>
+
+  <!-- lead -->
+  <rect class="box" x="30" y="110" width="120" height="70" rx="12"/>
+  <text x="90" y="140" class="t" text-anchor="middle">👤 Lead</text>
+  <text x="90" y="160" class="s" text-anchor="middle">“@foreman sweep”</text>
+
+  <!-- foreman -->
+  <rect class="box" x="200" y="110" width="130" height="70" rx="12" stroke="#ff8fa3"/>
+  <text x="265" y="140" class="t" text-anchor="middle">Foreman</text>
+  <text x="265" y="160" class="s" text-anchor="middle">plans · assigns</text>
+
+  <!-- workers -->
+  <rect class="box pulse" x="380" y="78" width="140" height="40" rx="10" stroke="#b6a3ff"/>
+  <text x="450" y="103" class="s" text-anchor="middle" style="fill:#e8ebf2">Worker · orders-api</text>
+  <rect class="box pulse" x="380" y="126" width="140" height="40" rx="10" stroke="#b6a3ff" style="animation-delay:.4s"/>
+  <text x="450" y="151" class="s" text-anchor="middle" style="fill:#e8ebf2">Worker · notify-worker</text>
+  <rect class="box pulse" x="380" y="174" width="140" height="40" rx="10" stroke="#b6a3ff" style="animation-delay:.8s"/>
+  <text x="450" y="199" class="s" text-anchor="middle" style="fill:#e8ebf2">Worker · billing-service</text>
+  <text x="450" y="236" class="s" text-anchor="middle">Codex · OpenCode · Claude</text>
+
+  <!-- verifier -->
+  <rect class="box" x="570" y="110" width="140" height="70" rx="12" stroke="#ffb366"/>
+  <text x="640" y="140" class="t" text-anchor="middle">Verifier</text>
+  <text x="640" y="160" class="s" text-anchor="middle">other vendor · re-runs</text>
+
+  <!-- gate -->
+  <rect class="box" x="760" y="110" width="170" height="70" rx="12" stroke="#7fe0a5"/>
+  <text x="845" y="140" class="t" text-anchor="middle">Gate → GitHub</text>
+  <text x="845" y="160" class="s" text-anchor="middle">one card · PRs merged</text>
+  <text x="845" y="205" class="tick" text-anchor="middle">✓ 3 PRs merged · 29 → 0</text>
+
+  <!-- lanes -->
+  <path class="lane" d="M150 145 H200"/>
+  <path class="lane" d="M330 145 C355 145 355 98 380 98"/>
+  <path class="lane" d="M330 145 H380"/>
+  <path class="lane" d="M330 145 C355 145 355 194 380 194"/>
+  <path class="lane" d="M520 98 C545 98 545 145 570 145"/>
+  <path class="lane" d="M520 146 H570"/>
+  <path class="lane" d="M520 194 C545 194 545 145 570 145"/>
+  <path class="lane" d="M710 145 H760"/>
+
+  <!-- animated packets -->
+  <path class="flow" stroke="#5ec8ff" d="M150 145 H200"/>
+  <path class="flow d2" stroke="#ff8fa3" d="M330 145 C355 145 355 98 380 98"/>
+  <path class="flow d2" stroke="#ff8fa3" d="M330 145 H380"/>
+  <path class="flow d2" stroke="#ff8fa3" d="M330 145 C355 145 355 194 380 194"/>
+  <path class="flow d3" stroke="#b6a3ff" d="M520 98 C545 98 545 145 570 145"/>
+  <path class="flow d3" stroke="#b6a3ff" d="M520 146 H570"/>
+  <path class="flow d3" stroke="#b6a3ff" d="M520 194 C545 194 545 145 570 145"/>
+  <path class="flow d4" stroke="#ffb366" d="M710 145 H760"/>
+
+  <text x="30" y="282" class="s">Workers hold read-only GitHub access and hand back patch files. Only the gate writes, and only the lead can command it.</text>
+</svg>
